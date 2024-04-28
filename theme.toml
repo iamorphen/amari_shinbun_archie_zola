@@ -1,0 +1,26 @@
+name = "amari_shinbun_archie_zola"
+description = "A customization of archie-zola."
+license = "MIT"
+homepage = "https://git.sr.ht/~deepcode/amari_shinbun_archie_zola"
+# The minimum version of Zola required
+min_version = "0.14.0"
+# An optional live demo URL
+demo = ""
+
+# Any variable there can be overridden in the end user `config.toml`
+# You don't need to prefix variables by the theme name but as this will
+# be merged with user data, some kind of prefix or nesting is preferable
+# Use snake_casing to be consistent with the rest of Zola
+[extra]
+
+# The theme author info: you!
+[author]
+name = "orphen"
+homepage = ""
+
+# If this is porting a theme from another static site engine, provide
+# the info of the original author here
+[original]
+author = "archie-zola"
+homepage = "https://github.com/XXXMrG/archie-zola/blob/main/theme.toml"
+repo = "https://github.com/XXXMrG/archie-zola/blob/main/theme.toml"
