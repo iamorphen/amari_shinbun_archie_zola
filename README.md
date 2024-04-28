@@ -1,142 +1,48 @@
-# archie-zola
+# amari\_shinbun\_archie\_zola
 
-A zola theme forked from [https://github.com/athul/archie](https://github.com/athul/archie)
-
-## Demo
-
-The Main branch source code hosted on [https://archie-zola.netlify.app](https://archie-zola.netlify.app)
-
-### ScreenShot
-
-![screenshot-light](https://archie-zola.netlify.app/screenshot/screenshot-light.png)
-
-![screenshot-dark](https://archie-zola.netlify.app/screenshot/screenshot-dark.png)
+The theme for the [amari shinbun](https://git.sr.ht/~deepcode/amari_shinbun).
+This theme is a modification of
+[archie-zola](https://github.com/XXXMrG/archie-zola).
 
 ## Installation
 
-First download this theme to your themes directory:
+In your Zola project:
 
-```bash
+```
 cd themes
-git clone https://github.com/XXXMrG/archie-zola.git
+git clone https://git.sr.ht/~deepcode/amari_shinbun_archie_zola
 ```
 
-or add as a git submodule:
+You can also add the theme via `git submodule add`.
 
-```bash
-git submodule add https://github.com/XXXMrG/archie-zola.git  themes/archie-zola
-```
-
-and then enable it in your config.toml:
+Add the following in the top level scope of `config.toml`:
 
 ```toml
-theme = "archie-zola"
+theme = "amari_shinbun_archie_zola"
 ```
 
-## Update
-
-If this is the first time you've checked out a repository containing this submodule, you need to initialize the submodules:
-
-```bash
-git submodule update --init
-```
-
-If your project contains multiple submodules, this command initializes all of them.
-
-Then, update all submodule:
-
-```bash
-git submodule update --remote
-```
-
-Finally, check your commit and push it.
-
-## Feature
-
-- Pagination
-- Tags
-- Auto Dark Mode(based on system theme)
-- Dark/Light Mode toggle
-- Google Analytics Script
-- Meta Tags For Individual Pages
-- Support Latex.
-
-in the planning stage：
-
-- [ ] Custom CSS & JS
-- [ ] Twitter Cards & Youtube video
-
-## Config
-
-### Customize `<meta/>` tags
-
-The following TOML and YAML code will yiled two `<meta/>` tags, `<meta property="og:title" content="the og title"/>`, `<meta property="og:description" content="the og description"/>`.
-
-TOML:
+## Configuration
 
 ```toml
-title = "post title"
-description = "post desc"
-date = "2023-01-01"
-
-[extra]
-meta = [
-    {property = "og:title", content = "the og title"},
-    {property = "og:description", content = "the og description"},
-]
-```
-
-YAML:
-
-```yaml
-title: "post title"
-description: "post desc"
-date: "2023-01-01"
-extra:
-  meta:
-    - property: "og:title"
-      content: "the og title"
-    - property: "og:description"
-      content: "the og description"
-```
-
-If the `og:title`, the `og:description`, or the "description" are not set, the page's title and description will be used. That is, the following TOML code generates `<meta property="og:title" content="post title"/>`, `<meta property="og:description" content="post desc"/>`, and `<meta property="og:description" content="post desc"/>` as default values.
-
-```toml
-title = "post title"
-description = "post desc"
-date = "2023-01-01"
-```
-
-### Theme config
-
-Cause Zola limited custom config must under the `extra` field, so there are some different with the origin theme:
-
-Demo website config.toml:
-
-```toml
-# control dark mode: auto | dark | toggle
+# View mode; options: {auto | dark | toggle}
 mode = "toggle"
 
-# subtitle will show under the title in index page
-subtitle = "A zola theme forked from [archie](https://github.com/athul/archie)"
-
-# if set true, will use external CDN resource to load font and js file
+# Fetch font and Javascript files from an external CDN?
 useCDN = false
 
 favicon = "/icon/favicon.png"
 
-# show in the footer
-copyright = "keith"
+# Copyright attribution shown in the footer.
+copyright = "your name"
 
-# config your Google Analysis ID
+# Your Google Analytics ID.
 ga = "XXXX-XXXXX"
 
-# optional: config your i18n entry
+# Config your supported languages. At least one is required.
 [extra.translations]
 languages = [{name = "en", url = "/"}]
 
-# config multi-language menu and other text
+# Configure the multi-language menu and other text.
 [[extra.translations.en]]
 show_more = "Read more ⟶"
 previous_page = "← Previous"
@@ -152,36 +58,24 @@ menus = [
     { name = "Tags", url = "/tags", weight = 4 },
 ]
 
-# config social icon info in the footer
+# Configure social icons in the footer. At least one is required.
 [[extra.social]]
-icon = "github"
-name = "GitHub"
-url = "https://github.com/XXXMrG/archie-zola"
-
-[[extra.social]]
-icon = "twitter"
-name = "Twitter"
-url = "https://github.com/your-name/"
-
-[[extra.social]]
-icon = "gitlab"
-name = "GitLab"
-url = "https://gitlab.com/your-name/"
-
+icon = "" # Options: {github | gitlab | twitter | <more?>}
+name = "" # Link text.
 ```
 
-### Latex math formula support
+### LaTex Math Formula Support
 
-This theme support latex math formula, by using [KaTeX](https://katex.org/).
+This theme supports LaTex math formulas by using [KaTeX](https://katex.org/).
 
-You can enable it by add `katex_enable = true` in the `extra` section of config.toml:
+In your `config.toml`:
 
 ```toml
 [extra]
 katex_enable = true
 ```
 
-After that, you can use latex math formula in your markdown file:
+Then, you can use LaTex math formulas in your Markdown files:
 
 ```
 $$
@@ -189,7 +83,7 @@ $$
 $$
 ```
 
-You can also use inline and block-style:
+You can also use the inline and block style formulas:
 
 ```
 1. \\( \KaTeX \\) inline
@@ -197,32 +91,20 @@ You can also use inline and block-style:
 3. $$ \KaTeX $$
 ```
 
-### Content config
+### Content Configuration
 
-**In content/posts/\_index.md. I use Zola config: transparent = true to implement the pagination**
+`transparent = true` in the prelude in `content/posts/_index.md` is part of the
+pagination implementation.
 
-In Zola, you can use config in the \_index.md to control pagination and sort post list:
+Control the pagination, tagging, and authorship in `_index.md` with:
 
 ```toml
 paginate_by = 3
 sort_by = "date"
 
 [taxonomies]
-tags = ["FE", "Rust"]
+tags = ["tag_one", "tag_two"]
 
 [extra]
-author = { name = "XXXMRG", social= "https://github.com/XXXMrG" }
+author = { name = "foo", social= "<url>" }
 ```
-
-## Extension
-
-Follow this [doc](https://www.getzola.org/documentation/themes/extending-a-theme/) to extend theme.
-
-## Contributing
-
-Thank you very much for considering contributing to this project!
-
-We appreciate any form of contribution:
-
-- New issues (feature requests, bug reports, questions, ideas, ...)
-- Pull requests (documentation improvements, code improvements, new features, ...)
