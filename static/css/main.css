@@ -1,9 +1,9 @@
 /* Markdown */
 :root {
-  --maincolor: red;
+  --maincolor: #1e3d56;
   --bordercl: rebeccapurple;
   --callouctcolor: dodgerblue;
-  --hovercolor: navy;
+  --hovercolor: #1e3d56;
   --darkMaincolor: #50fa7b;
 }
 
@@ -50,7 +50,7 @@ p {
 
 hr {
   border: 0;
-  border-top: 3px dotted var(--bordercl);
+  border-top: 0.1rem dashed var(--maincolor);
   margin: 1em 0;
 }
 
@@ -63,6 +63,12 @@ blockquote {
 
 a {
   border-bottom: 3px solid var(--maincolor);
+  color: inherit;
+  text-decoration: none;
+}
+
+a.no_underline {
+  border-bottom: none;
   color: inherit;
   text-decoration: none;
 }
@@ -178,32 +184,36 @@ h6 {
 
 h1::before {
   color: var(--maincolor);
-  content: "# ";
+  content: ": ";
+}
+
+h1.title::before {
+  content: none;
 }
 
 h2::before {
   color: var(--maincolor);
-  content: "## ";
+  content: ":: ";
 }
 
 h3::before {
   color: var(--maincolor);
-  content: "### ";
+  content: "::: ";
 }
 
 h4::before {
   color: var(--maincolor);
-  content: "#### ";
+  content: ":::: ";
 }
 
 h5::before {
   color: var(--maincolor);
-  content: "##### ";
+  content: "::::: ";
 }
 
 h6::before {
   color: var(--maincolor);
-  content: "###### ";
+  content: ":::::: ";
 }
 
 .meta {
@@ -215,7 +225,7 @@ h6::before {
 footer {
   display: flex;
   align-items: center;
-  border-top: 0.4rem dotted var(--bordercl);
+  border-top: 0.1rem solid var(--maincolor);
   padding: 2rem 0rem;
   margin-top: 2rem;
 }
