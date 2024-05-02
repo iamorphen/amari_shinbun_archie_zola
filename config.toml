@@ -48,7 +48,6 @@ previous_page = "← Previous"
 next_page = "Next →"
 posted_on = "on "
 posted_by = "Published by"
-read_time = "minute read"
 all_tags = "All tags"
 menus = [
     { name = "Home", url = "/", weight = 2 },
