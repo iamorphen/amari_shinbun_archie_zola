@@ -9,7 +9,8 @@
     {% endif %}
   </div>
   <div class="footer-info">
-    &copy; {{ now() | date(format="%Y") }} {{ config.extra.copyright }}
+    {% set copy_date = now() | date(format="%Y") %}
+    {{ copy_date ~ " " ~ config.extra.copyright | markdown | safe }}
   </div>
 </footer>
 
