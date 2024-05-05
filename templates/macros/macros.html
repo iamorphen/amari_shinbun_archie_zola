@@ -25,6 +25,9 @@
         <section class="list-item">
             <time>{{ page.date | date(format="%Y-%m-%d") }} | </time>
             <a href={{ page.permalink }}>{{page.title}}</a>
+            {% if page.extra.subtitle %}
+                {{ page.extra.subtitle }}
+            {% endif %}
 
             {% if page.extra.author %}
                 <span>| {{extra.translations[lang][0].posted_by }} <a href="{{ page.extra.author.social }}" target="_blank">{{ page.extra.author.name }}</a></span>
