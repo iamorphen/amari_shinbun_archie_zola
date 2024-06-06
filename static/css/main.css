@@ -239,6 +239,12 @@ footer {
   border-bottom: none;
 }
 
+footer a img {
+  border: none;
+  width: 16px;
+  height: 16px;
+}
+
 .footer-info {
   padding: var(--footer-padding);
 }

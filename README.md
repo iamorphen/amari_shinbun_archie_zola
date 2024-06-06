@@ -10,10 +10,8 @@ In your Zola project:
 
 ```
 cd themes
-git clone https://git.sr.ht/~deepcode/amari_shinbun_archie_zola
+git submodule add https://git.sr.ht/~deepcode/amari_shinbun_archie_zola
 ```
-
-You can also add the theme via `git submodule add`.
 
 Add the following in the top level scope of `config.toml`:
 
@@ -27,9 +25,10 @@ theme = "amari_shinbun_archie_zola"
 # View mode; options: {auto | dark | toggle}
 mode = "toggle"
 
-# Fetch font and Javascript files from an external CDN?
+# Fetch font and Javascript files from an external CDN: {true | false}
 useCDN = false
 
+# Site-root-relative path to your favicon.
 favicon = "/icon/favicon.png"
 
 # Copyright attribution shown in the footer.
@@ -38,11 +37,11 @@ copyright = "your name"
 # Your Google Analytics ID.
 ga = "XXXX-XXXXX"
 
-# Config your supported languages. At least one is required.
+# Configure your supported languages. At least one is required.
 [extra.translations]
 languages = [{name = "en", url = "/"}]
 
-# Configure the multi-language menu and other text.
+# Configure the multi-language menu and other site text.
 [[extra.translations.en]]
 show_more = "Read more ⟶"
 previous_page = "← Previous"
@@ -59,8 +58,12 @@ menus = [
 
 # Configure social icons in the footer. At least one is required.
 [[extra.social]]
-icon = "" # Options: {github | gitlab | twitter | <more?>}
-name = "" # Link text.
+# Any simple-icons slug: https://github.com/simple-icons/simple-icons/blob/master/slugs.md
+icon = ""
+# The link text.
+name = ""
+# The link target.
+url = ""
 ```
 
 ### LaTex Math Formula Support

@@ -2,9 +2,9 @@
   <div style="display:flex">
     {% if config.extra.social %}
       {% for social in config.extra.social %}
-          <a class="soc" href={{ social.url }} title={{ social.name }}>
-              <i data-feather={{ social.icon }}></i>
-          </a>
+        <a class="soc" href={{ social.url }} title={{ social.name }}>
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v12/icons/{{ social.icon }}.svg" />
+        </a>
       {% endfor %}
     {% endif %}
   </div>
@@ -13,9 +13,3 @@
     {{ copy_date ~ " " ~ config.extra.copyright | markdown | safe }}
   </div>
 </footer>
-
-{% if config.extra.social %}
-<script>
-    feather.replace();
-</script>
-{% endif %}
